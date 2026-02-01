@@ -7,6 +7,12 @@ import { typography } from './src/design-system/tokens/typography'
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
+    screens: {
+      // Mobile-first
+      sm: '640px',   // Mobile
+      md: '768px',   // Tablet
+      lg: '1024px',  // Desktop
+    },
     extend: {
       colors: {
         primary: colors.primary,
@@ -47,6 +53,7 @@ export default {
         xl: `${spacing.xl}px`,
         '2xl': `${spacing['2xl']}px`,
       },
+
 
       borderRadius: {
         sm: radius.sm,
