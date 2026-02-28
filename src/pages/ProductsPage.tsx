@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getAllProducts, BRANDS } from '../data/brands';
+import { useCatalog } from '../context/CatalogContext';
 import { ProductCard } from '../components/ui/ProductCard';
 
 export default function ProductsPage() {
     const [selectedBrand, setSelectedBrand] = useState('all');
-    const allProducts = getAllProducts();
+    const { brands, allProducts } = useCatalog();
 
     const filteredProducts = selectedBrand === 'all'
         ? allProducts
@@ -47,7 +47,7 @@ export default function ProductsPage() {
                                     </span>
                                 </label>
 
-                                {BRANDS.map((brand, i) => (
+                                {brands.map((brand, i) => (
                                     <motion.label
                                         initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}
                                         key={brand.id} className="flex items-center space-x-4 cursor-pointer group"

@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
+import { CatalogProvider } from './context/CatalogContext';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <CatalogProvider>
+        <App />
+      </CatalogProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );

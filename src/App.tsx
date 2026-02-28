@@ -7,6 +7,7 @@ import BrandsPage from './pages/BrandsPage';
 import ProductsPage from './pages/ProductsPage';
 import InquiryPage from './pages/InquiryPage';
 import ContactPage from './pages/ContactPage';
+import ImportDashboard from './pages/admin/ImportDashboard';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/inquiry" element={<InquiryPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/admin" element={<ImportDashboard />} />
         </Routes>
       </main>
       <Footer />

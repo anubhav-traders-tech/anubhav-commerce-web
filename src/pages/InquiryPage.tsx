@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { Send, Store, User, Phone, MapPin } from 'lucide-react';
-import { BRANDS } from '../data/brands';
+import { useCatalog } from '../context/CatalogContext';
 
 export default function InquiryPage() {
+    const { brands } = useCatalog();
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
@@ -87,7 +88,7 @@ export default function InquiryPage() {
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">Brands of Interest</label>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                        {BRANDS.map(brand => (
+                                        {brands.map(brand => (
                                             <label key={brand.id} className="group relative flex items-center space-x-3 bg-white p-4 rounded-2xl border-2 border-gray-100 cursor-pointer hover:border-blue-300 transition-all shadow-sm hover:shadow-md">
                                                 <input type="checkbox" className="h-5 w-5 text-blue-600 rounded bg-gray-50 border-gray-300 focus:ring-blue-500 focus:ring-offset-0" />
                                                 <span className="text-sm font-bold text-gray-900 select-none block truncate">{brand.name}</span>

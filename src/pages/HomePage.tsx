@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldCheck, Truck, Package } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { BRANDS, getAllProducts } from '../data/brands';
+import { useCatalog } from '../context/CatalogContext';
 import { BrandCard } from '../components/ui/BrandCard';
 import { ProductCard } from '../components/ui/ProductCard';
 
 export default function HomePage() {
-    const allProducts = getAllProducts();
+    const { brands, allProducts } = useCatalog();
     const featuredProducts = allProducts.filter(p => p.isNew).slice(0, 8);
     if (featuredProducts.length === 0) {
         featuredProducts.push(...allProducts.slice(0, 8)); // Fallback
@@ -86,7 +86,7 @@ export default function HomePage() {
                         initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
                     >
-                        {BRANDS.map(brand => (
+                        {brands.map(brand => (
                             <motion.div key={brand.id} variants={itemVariants}>
                                 <BrandCard brand={brand} />
                             </motion.div>

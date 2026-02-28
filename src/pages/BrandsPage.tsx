@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { BRANDS } from '../data/brands';
+import { useCatalog } from '../context/CatalogContext';
 import { BrandCard } from '../components/ui/BrandCard';
 
 export default function BrandsPage() {
-    const containerVariants = {
+    const { brands } = useCatalog();
+    const containerVariants: any = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -11,7 +12,7 @@ export default function BrandsPage() {
         }
     };
 
-    const itemVariants = {
+    const itemVariants: any = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
     };
@@ -40,7 +41,7 @@ export default function BrandsPage() {
                     variants={containerVariants} initial="hidden" animate="visible"
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
                 >
-                    {BRANDS.map(brand => (
+                    {brands.map(brand => (
                         <motion.div key={brand.id} variants={itemVariants}>
                             <BrandCard brand={brand} />
                         </motion.div>

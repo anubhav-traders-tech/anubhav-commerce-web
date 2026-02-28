@@ -1,12 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BRANDS } from '../data/brands';
+import { useCatalog } from '../context/CatalogContext';
 import { ProductCard } from '../components/ui/ProductCard';
 
 export default function BrandPage() {
     const { slug } = useParams<{ slug: string }>();
 
-    const brand = BRANDS.find(b => b.slug === slug);
+    const { brands } = useCatalog();
+    const brand = brands.find(b => b.slug === slug);
 
     if (!brand) {
         return (

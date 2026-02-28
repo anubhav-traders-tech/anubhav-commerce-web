@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { BRANDS } from '../../data/brands';
+import { useCatalog } from '../../context/CatalogContext';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 export const Footer = () => {
+    const { brands } = useCatalog();
     return (
         <footer className="bg-gray-900 text-gray-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -29,7 +30,7 @@ export const Footer = () => {
                     <div>
                         <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">Our Brands</h3>
                         <ul className="space-y-2">
-                            {BRANDS.slice(0, 5).map(brand => (
+                            {brands.slice(0, 5).map(brand => (
                                 <li key={brand.id}>
                                     <Link to={`/brand/${brand.slug}`} className="text-sm hover:text-white transition-colors">
                                         {brand.name}
