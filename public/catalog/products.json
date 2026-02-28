@@ -28,126 +28,398 @@
     "name": "Sifi Prakash",
     "slug": "sifi-prakash",
     "description": "Authentic Pahadi namkeens and traditional snacks.",
-    "logo": "https://images.unsplash.com/photo-1599598425947-330026217415?auto=format&fit=crop&q=80&w=200&h=200",
+    "logo": "/catalog/images/sifi-prakash-logo.png",
     "products": [
       {
-        "id": "sp-0",
-        "name": "Akha Chana",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/akha-chana.png",
-        "isNew": true
-      },
-      {
         "id": "sp-1",
-        "name": "Aloo Bhujia",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/aloo-bhujia.png",
+        "name": "Akha Chana",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-akha-chana.png",
         "isNew": true
       },
       {
         "id": "sp-2",
-        "name": "Bhujia",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/bhujia.png",
+        "name": "Akha Chana",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-akha-chana.png",
         "isNew": true
       },
       {
         "id": "sp-3",
-        "name": "Boondi",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/boondi.png",
-        "isNew": false
+        "name": "Aloo Bhujia",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-aloo-bhujia.png",
+        "isNew": true
       },
       {
         "id": "sp-4",
-        "name": "Dhaniya Chana Dal",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/dhaniya-chana-dal.png",
-        "isNew": false
+        "name": "Aloo Bhujia",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-aloo-bhujia.png",
+        "isNew": true
       },
       {
         "id": "sp-5",
-        "name": "Khatta Meetha",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/khatta-meetha.png",
-        "isNew": false
+        "name": "Bhujia",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-bhujia.png",
+        "isNew": true
       },
       {
         "id": "sp-6",
-        "name": "Lite Diet",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/lite-diet.png",
-        "isNew": false
-      },
-      {
-        "id": "sp-7",
-        "name": "Masala Mattar",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/masala-mattar.png",
+        "name": "Bhujia",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-bhujia.png",
         "isNew": false
       },
       {
         "id": "sp-8",
-        "name": "Moong Dal",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/moong-dal.png",
+        "name": "Boondi",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-boondi.png",
         "isNew": false
       },
       {
         "id": "sp-9",
-        "name": "Navratan",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/navratan.png",
+        "name": "Dhaniya Chana Dal",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-dhaniya-chana-dal.png",
         "isNew": false
       },
       {
         "id": "sp-10",
-        "name": "Pudina Boondi",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/pudina-boondi.png",
+        "name": "Dhaniya Chana Dal",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-dhaniya-chana-dal.png",
         "isNew": false
       },
       {
         "id": "sp-11",
-        "name": "Punjabi Tadka",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/punjabi-tadka.png",
+        "name": "Khatta Meetha",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-khatta-meetha.png",
         "isNew": false
       },
       {
         "id": "sp-12",
-        "name": "Rajasthani Sev",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/rajasthani-sev.png",
-        "isNew": false
-      },
-      {
-        "id": "sp-13",
-        "name": "Salted Peanut",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/salted-peanut.png",
+        "name": "Khatta Meetha",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-khatta-meetha.png",
         "isNew": false
       },
       {
         "id": "sp-14",
+        "name": "Lite Diet",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-lite-diet.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-15",
+        "name": "Masala Mattar",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-masala-mattar.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-16",
+        "name": "Masala Mattar",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-masala-mattar.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-17",
+        "name": "Moong Dal",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-moong-dal.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-18",
+        "name": "Moong Dal",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-moong-dal.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-19",
+        "name": "Navratan",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-navratan.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-20",
+        "name": "Navratan",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-navratan.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-22",
+        "name": "Pudina Boondi",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-pudina-boondi.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-23",
+        "name": "Punjabi Tadka",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-punjabi-tadka.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-24",
+        "name": "Punjabi Tadka",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-punjabi-tadka.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-26",
+        "name": "Rajasthani Sev",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-rajasthani-sev.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-27",
+        "name": "Salted Peanut",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-salted-peanut.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-28",
+        "name": "Salted Peanut",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-salted-peanut.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-29",
         "name": "Tasty Nut",
-        "category": "Namkeen",
-        "mrp": "₹5 & ₹10",
-        "image": "/catalog/images/sifi-prakash/tasty-nut.png",
+        "category": "Namkeen ₹5",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/namkeen-5-tasty-nut.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-30",
+        "name": "Tasty Nut",
+        "category": "Namkeen ₹10",
+        "mrp": "₹10",
+        "image": "/catalog/images/sifi-prakash/namkeen-10-tasty-nut.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-31",
+        "name": "Aloo Bhujia",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-aloo-bhujia.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-32",
+        "name": "Bombay Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-bombay-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-33",
+        "name": "Cashew Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-cashew-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-34",
+        "name": "Golden Papdi Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-golden-papdi-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-35",
+        "name": "Gujarati Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-gujarati-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-36",
+        "name": "Khatta Metha Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-khatta-metha-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-37",
+        "name": "Moongdal",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-moongdal.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-38",
+        "name": "Navratna",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-navratna.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-39",
+        "name": "Pahadi Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-pahadi-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-40",
+        "name": "Pancharatna Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-pancharatna-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-41",
+        "name": "Party Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-party-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-42",
+        "name": "Phalhari Mixture",
+        "category": "Premium Range",
+        "mrp": "₹35",
+        "image": "/catalog/images/sifi-prakash/premium-range-phalhari-mixture-35range.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-43",
+        "name": "Pudina Boondi",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-pudina-boondi.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-44",
+        "name": "Shahi Korma Mixture",
+        "category": "Premium Range",
+        "mrp": "₹50",
+        "image": "/catalog/images/sifi-prakash/premium-range-shahi-korma-mixture.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-45",
+        "name": "Clap Chatka Chilli",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-chatka-chilli.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-46",
+        "name": "Clap Cheese",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-cheese.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-47",
+        "name": "Clap Masala Chaska",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-masala-chaska.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-48",
+        "name": "Clap Piri Piri",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-piri-piri.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-49",
+        "name": "Clap Stiks Magic Masala",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-stiks-magic-masala.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-50",
+        "name": "Clap Stiks Minty Masti",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-clap-stiks-minty-masti.png",
+        "isNew": false
+      },
+      {
+        "id": "sp-51",
+        "name": "Fingers",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-fingers-.jpeg",
+        "isNew": false
+      },
+      {
+        "id": "sp-52",
+        "name": "Koppa",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-koppa.jpeg",
+        "isNew": false
+      },
+      {
+        "id": "sp-53",
+        "name": "Noodles",
+        "category": "Snacks",
+        "mrp": "₹5",
+        "image": "/catalog/images/sifi-prakash/snacks-noodles.jpeg",
         "isNew": false
       }
     ]
