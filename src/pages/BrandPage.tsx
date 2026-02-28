@@ -1,10 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCatalog } from '../context/CatalogContext';
 import { ProductCard } from '../components/ui/ProductCard';
 
 export default function BrandPage() {
     const { slug } = useParams<{ slug: string }>();
+    const [activeCategory, setActiveCategory] = useState<string>('All');
 
     const { brands } = useCatalog();
     const brand = brands.find(b => b.slug === slug);
@@ -22,6 +24,7 @@ export default function BrandPage() {
 
     // Get unique categories for this brand
     const categories = Array.from(new Set(brand.products.map(p => p.category)));
+    const displayCategories = activeCategory === 'All' ? categories : categories.filter(c => c === activeCategory);
 
     return (
         <div className="bg-white min-h-screen">
@@ -47,9 +50,32 @@ export default function BrandPage() {
                 </div>
             </div>
 
+            {/* Category Navigation */}
+            {categories.length > 1 && (
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2 flex overflow-x-auto custom-scrollbar gap-2 max-w-fit mx-auto">
+                        <button
+                            onClick={() => setActiveCategory('All')}
+                            className={`px-6 py-3 rounded-xl whitespace-nowrap font-bold text-sm transition-all ${activeCategory === 'All' ? 'bg-blue-600 text-white shadow-md' : 'text-gray-600 hover:bg-gray-100'}`}
+                        >
+                            All Products
+                        </button>
+                        {categories.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`px-6 py-3 rounded-xl whitespace-nowrap font-bold text-sm transition-all ${activeCategory === cat ? 'bg-blue-600 text-white shadow-md' : 'text-gray-600 hover:bg-gray-100'}`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             {/* Product Categories / Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                {categories.map((category, index) => {
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                {displayCategories.map((category, index) => {
                     const catProducts = brand.products.filter(p => p.category === category);
 
                     return (
