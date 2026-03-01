@@ -1,11 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useCart } from '../../context/CartContext';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const { cartCount } = useCart();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,8 +33,8 @@ export const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-                    ? 'glass'
-                    : 'bg-white/90 border-b border-gray-100'
+                ? 'glass'
+                : 'bg-white/90 border-b border-gray-100'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,17 +54,35 @@ export const Navbar = () => {
                                 key={link.name}
                                 to={link.path}
                                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${isActive(link.path)
-                                        ? 'bg-blue-50 text-blue-700 shadow-sm'
-                                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                    ? 'bg-blue-50 text-blue-700 shadow-sm'
+                                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                     }`}
                             >
                                 {link.name}
                             </Link>
                         ))}
+
+                        {/* Desktop Cart Icon */}
+                        <div className="relative ml-4 p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
+                            <ShoppingCart className="w-6 h-6" />
+                            {cartCount > 0 && (
+                                <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </div>
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="flex items-center md:hidden">
+                    {/* Mobile menu button and Cart */}
+                    <div className="flex items-center space-x-4 md:hidden">
+                        <div className="relative p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
+                            <ShoppingCart className="w-6 h-6" />
+                            {cartCount > 0 && (
+                                <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </div>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors"
@@ -86,8 +106,8 @@ export const Navbar = () => {
                             to={link.path}
                             onClick={() => setIsOpen(false)}
                             className={`block px-4 py-3 rounded-xl text-base font-bold transition-all ${isActive(link.path)
-                                    ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600'
-                                    : 'text-gray-900 hover:bg-gray-50'
+                                ? 'bg-blue-50 text-blue-700 border-l-4 border-blue-600'
+                                : 'text-gray-900 hover:bg-gray-50'
                                 }`}
                         >
                             {link.name}

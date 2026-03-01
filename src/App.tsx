@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import BrandPage from './pages/BrandPage';
 import BrandsPage from './pages/BrandsPage';
 import ProductsPage from './pages/ProductsPage';
+import ProductDetail from './pages/ProductDetail';
 import InquiryPage from './pages/InquiryPage';
 import ContactPage from './pages/ContactPage';
 import ImportDashboard from './pages/admin/ImportDashboard';
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/brands" element={<BrandsPage />} />
           <Route path="/brand/:slug" element={<BrandPage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/product/:productId" element={<ProductDetail />} />
           <Route path="/inquiry" element={<InquiryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin" element={<ImportDashboard />} />
