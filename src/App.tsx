@@ -12,6 +12,9 @@ import OrderSuccessPage from './pages/OrderSuccessPage';
 import InquiryPage from './pages/InquiryPage';
 import ContactPage from './pages/ContactPage';
 import ImportDashboard from './pages/admin/ImportDashboard';
+import LoginPage from './pages/auth/LoginPage';
+import SignupPage from './pages/auth/SignupPage';
+import DashboardPage from './pages/auth/DashboardPage';
 
 export default function App() {
   return (
@@ -30,6 +33,9 @@ export default function App() {
           <Route path="/inquiry" element={<InquiryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin" element={<ImportDashboard />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </main>
       <Footer />

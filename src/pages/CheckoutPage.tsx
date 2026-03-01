@@ -2,26 +2,29 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { useAuth } from '../context/AuthContext';
 
 export default function CheckoutPage() {
     const { cart, clearCart, setIsCartOpen } = useCart();
+    const { session, profile } = useAuth();
     const navigate = useNavigate();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const [formData, setFormData] = useState({
         fullName: '',
-        companyName: '',
-        mobile: '',
-        email: '',
+        companyName: profile?.company_name || '',
+        mobile: profile?.phone || '',
+        email: profile?.email || session?.user?.email || '',
         address1: '',
         address2: '',
         city: '',
         state: '',
         pincode: '',
-        businessType: 'Retailer',
+        businessType: profile?.business_type || 'Retailer',
         monthlyVolume: '',
-        gstNumber: '',
+        gstNumber: profile?.gst_number || '',
         notes: ''
     });
 
@@ -128,9 +131,58 @@ ${cart.map(item => `- ${item.name} (x${item.quantity})`).join('\n')}
             const encodedMessage = encodeURIComponent(orderDetailsText);
             const whatsappUrl = `https://wa.me/919876543210?text=${encodedMessage}`;
 
-            // Save order in local storage for order-success to pick up
+            let finalOrderId = orderId;
+
+            // Database Persistence
+            if (session?.user?.id) {
+                // Calculate total using tier fallback safely
+                let totalAmount = 0;
+                cart.forEach(item => {
+                    const price = Number(item.price) || 0;
+                    if (item.quantity >= 20) {
+                        totalAmount += Math.floor(price * 0.95) * item.quantity;
+                    } else if (item.quantity >= 6) {
+                        totalAmount += Math.floor(price * 0.95) * item.quantity;
+                    } else {
+                        totalAmount += price * item.quantity;
+                    }
+                });
+
+                const { data: orderResponse, error: orderError } = await supabase
+                    .from('orders')
+                    .insert([
+                        {
+                            user_id: session.user.id,
+                            total_amount: totalAmount,
+                            status: 'pending',
+                            emailjs_id: orderId,
+                            notes: formData.notes
+                        }
+                    ])
+                    .select()
+                    .single();
+
+                if (orderError) throw orderError;
+
+                finalOrderId = orderResponse.id;
+
+                const orderItems = cart.map((item) => ({
+                    order_id: finalOrderId,
+                    product_id: item.id,
+                    product_name: item.name,
+                    quantity: item.quantity,
+                    price: item.price
+                }));
+
+                const { error: itemsError } = await supabase
+                    .from('order_items')
+                    .insert(orderItems);
+
+                if (itemsError) throw itemsError;
+            }
+
             const newOrder = {
-                orderId,
+                orderId: finalOrderId, // use DB exact ID if logged in
                 customer: formData,
                 products: cart,
                 subtotal: 'TBD',
@@ -138,11 +190,8 @@ ${cart.map(item => `- ${item.name} (x${item.quantity})`).join('\n')}
                 orderDate: new Date().toISOString(),
                 orderStatus: 'Pending',
                 paymentStatus: 'Pending',
-                whatsappUrl // Temporarily store here
+                whatsappUrl
             };
-
-            const existingOrders = JSON.parse(localStorage.getItem('orders') || '[]');
-            localStorage.setItem('orders', JSON.stringify([...existingOrders, newOrder]));
 
             // Set current order for success page context
             localStorage.setItem('latestOrder', JSON.stringify(newOrder));

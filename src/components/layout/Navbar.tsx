@@ -2,6 +2,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { ClipboardList, Menu, X, MapPin, Phone, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
 import { GlobalSearch } from '../ui/GlobalSearch';
 
 export const Navbar = () => {
@@ -9,6 +10,7 @@ export const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
     const { cartCount, setIsCartOpen } = useCart();
+    const { session } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,6 +26,7 @@ export const Navbar = () => {
         { name: 'Products', path: '/products' },
         { name: 'Inquiry', path: '/inquiry' },
         { name: 'Contact', path: '/contact' },
+        { name: session ? 'Dashboard' : 'Dealer Portal', path: session ? '/dashboard' : '/login' }
     ];
 
     const isActive = (path: string) => {
