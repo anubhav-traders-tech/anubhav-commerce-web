@@ -26,8 +26,16 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [cart, setCart] = useState<CartItem[]>(() => {
-        const saved = localStorage.getItem('cart');
-        return saved ? JSON.parse(saved) : [];
+        try {
+            const saved = localStorage.getItem('cart');
+            if (!saved) return [];
+            const parsed = JSON.parse(saved);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            console.warn("Corrupted cart data found, resetting cart.");
+            localStorage.removeItem('cart');
+            return [];
+        }
     });
     const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -36,12 +44,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }, [cart]);
 
     const addToCart = (item: CartItem) => {
+        if (item.quantity <= 0) return;
         setCart(prev => {
             const existing = prev.find(p => p.id === item.id);
             if (existing) {
-                return prev.map(p => p.id === item.id ? { ...p, quantity: p.quantity + item.quantity } : p);
+                return prev.map(p => p.id === item.id ? { ...p, quantity: Math.min(p.quantity + item.quantity, 999) } : p);
             }
-            return [...prev, item];
+            return [...prev, { ...item, quantity: Math.min(item.quantity, 999) }];
         });
 
         // Toast logic could go here or can be handled in the component
@@ -56,8 +65,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const updateQuantity = (id: string, quantity: number) => {
-        if (quantity < 1) return;
-        setCart(prev => prev.map(p => p.id === id ? { ...p, quantity } : p));
+        if (quantity < 1) {
+            removeFromCart(id);
+            return;
+        }
+        const safeQuantity = Math.min(quantity, 999);
+        setCart(prev => prev.map(p => p.id === id ? { ...p, quantity: safeQuantity } : p));
     };
 
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);

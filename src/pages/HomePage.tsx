@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown, ShieldCheck, Truck } from 'lucide-react';
 import { useCatalog } from '../context/CatalogContext';
 import { ProductCard } from '../components/ui/ProductCard';
 import { AIProductFinder } from '../components/ui/AIProductFinder';
+import { SEOHead } from '../components/ui/SEOHead';
 import { useEffect, useRef, useState } from 'react';
 
 // Scroll reveal custom hook
@@ -81,6 +82,22 @@ export default function HomePage() {
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50">
+            <SEOHead
+                title="Anubhav Traders | Authorized FMCG & Ayurvedic Brand Distributor and super stockist"
+                description="Professional multi-brand FMCG distributor supplying retailers and bulk buyers across multiple categories."
+                canonicalUrl="https://www.anubhavtraders.com/"
+                schemaData={{
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "url": "https://www.anubhavtraders.com/",
+                    "name": "Anubhav Traders",
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+91-8851412032",
+                        "contactType": "Customer service"
+                    }
+                }}
+            />
             {/* 1. HERO / ABOUT SECTION */}
             <section className="relative bg-emerald-900 pt-24 lg:pt-32 pb-32 lg:pb-40 px-4 sm:px-6 lg:px-8 border-b border-emerald-800 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c15273?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center mix-blend-overlay opacity-10"></div>
@@ -123,6 +140,8 @@ export default function HomePage() {
                             <img
                                 src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800"
                                 alt="Modern Logistics Warehouse"
+                                loading="eager"
+                                fetchPriority="high"
                                 className="w-full h-auto rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-emerald-700/50 animate-float object-cover aspect-[4/3]"
                             />
                             {/* Floating decorative elements */}

@@ -17,7 +17,8 @@ export const BrandCard = ({ brand }: BrandCardProps) => {
                 <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/5 transition-colors duration-500"></div>
                 <img
                     src={brand.logo}
-                    alt={brand.name}
+                    alt={`${brand.name} logo`}
+                    loading="lazy"
                     className="h-28 object-contain group-hover:scale-110 transition-transform duration-700 ease-out drop-shadow-sm"
                 />
             </div>

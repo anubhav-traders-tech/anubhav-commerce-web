@@ -8,6 +8,7 @@ export default function CheckoutPage() {
     const navigate = useNavigate();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
     const [formData, setFormData] = useState({
         fullName: '',
         mobile: '',
@@ -31,9 +32,11 @@ export default function CheckoutPage() {
         );
     }
 
+    const sanitizeInput = (val: string) => val.replace(/[<>]/g, '').trimStart();
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        setFormData(prev => ({ ...prev, [name]: sanitizeInput(value) }));
     };
 
     const sendOrderEmail = (orderData: any) => {
@@ -46,9 +49,22 @@ export default function CheckoutPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setErrorMsg('');
 
         if (cart.length === 0) {
-            alert("Your cart is empty.");
+            setErrorMsg("Your cart has expired or is empty. Please add items before checking out.");
+            return;
+        }
+
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(formData.mobile.replace(/\D/g, ''))) {
+            setErrorMsg("Please enter a valid 10-digit mobile number.");
+            return;
+        }
+
+        const pinRegex = /^[0-9]{6}$/;
+        if (!pinRegex.test(formData.pincode.trim())) {
+            setErrorMsg("Please enter a valid 6-digit postal pincode.");
             return;
         }
 
@@ -127,7 +143,7 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
 
         } catch (error) {
             console.error('Error processing order:', error);
-            alert("There was an error submitting your order. Please try again.");
+            setErrorMsg("Network Error: Failed to submit the order via EmailJS. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -146,7 +162,13 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                     {/* Left: Checkout Form */}
                     <div className="lg:col-span-7 space-y-6">
                         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-100 shadow-sm">
-                            <h2 className="text-2xl font-black text-gray-900 mb-8 tracking-tight">Billing Details</h2>
+                            <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Billing Details</h2>
+
+                            {errorMsg && (
+                                <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl">
+                                    <p className="text-red-700 font-bold">{errorMsg}</p>
+                                </div>
+                            )}
 
                             <form id="checkout-form" onSubmit={handleSubmit} className="space-y-6">
                                 {/* Basic Info */}

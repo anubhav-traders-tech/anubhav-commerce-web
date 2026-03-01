@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useCatalog } from '../context/CatalogContext';
 import { useCart } from '../context/CartContext';
 import { ShoppingCart, Check, ChevronRight } from 'lucide-react';
+import { SEOHead } from '../components/ui/SEOHead';
 
 export default function ProductDetail() {
     const { productId } = useParams<{ productId: string }>();
@@ -77,6 +78,31 @@ export default function ProductDetail() {
 
     return (
         <div className="bg-gray-50 min-h-screen py-8">
+            <SEOHead
+                title={`${name} | ${brandName || 'Anubhav Traders'} | Anubhav Traders`}
+                description={short_description || `Buy ${name} at wholesale prices.`}
+                canonicalUrl={`https://www.anubhavtraders.com/product/${product.id}`}
+                schemaData={{
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": name,
+                    "image": mainImage,
+                    "description": short_description,
+                    "sku": sku,
+                    "brand": {
+                        "@type": "Brand",
+                        "name": brandName
+                    },
+                    "offers": {
+                        "@type": "Offer",
+                        "url": `https://www.anubhavtraders.com/product/${product.id}`,
+                        "priceCurrency": "INR",
+                        "price": selling_price || mrp || 0,
+                        "itemCondition": "https://schema.org/NewCondition",
+                        "availability": stock && stock === 0 ? "https://schema.org/OutOfStock" : "https://schema.org/InStock"
+                    }
+                }}
+            />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Breadcrumbs */}

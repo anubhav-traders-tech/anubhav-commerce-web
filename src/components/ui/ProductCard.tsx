@@ -38,6 +38,7 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
                     <img
                         src={product.image}
                         alt={product.name}
+                        loading="lazy"
                         className="absolute inset-0 w-full h-full object-contain p-5 group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
 
@@ -92,6 +93,8 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
                         </div>
                         <button
                             onClick={handleAddToCart}
+                            aria-label={`Add ${product.name} to cart`}
+                            title={`Add ${product.name} to cart`}
                             className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2.5 rounded-[8px] transition-colors shadow-sm flex items-center justify-center space-x-2"
                         >
                             <ShoppingCart className="w-4 h-4" />

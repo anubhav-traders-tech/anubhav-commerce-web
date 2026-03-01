@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useCatalog } from '../context/CatalogContext';
 import { ProductCard } from '../components/ui/ProductCard';
+import { SEOHead } from '../components/ui/SEOHead';
 
 export default function BrandPage() {
     const { slug } = useParams<{ slug: string }>();
@@ -28,6 +29,18 @@ export default function BrandPage() {
 
     return (
         <div className="bg-white min-h-screen">
+            <SEOHead
+                title={`${brand.name} Products | Anubhav Traders`}
+                description={`Wholesale distribution of ${brand.name} products. ${brand.description || "Authrorized FMCG distributor."}`}
+                canonicalUrl={`https://www.anubhavtraders.com/brand/${brand.slug}`}
+                schemaData={{
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "name": `${brand.name} Products`,
+                    "description": brand.description,
+                    "url": `https://www.anubhavtraders.com/brand/${brand.slug}`
+                }}
+            />
             {/* Brand Banner */}
             <div className="relative bg-gray-900 overflow-hidden">
                 {/* Abstract background for modern look */}
