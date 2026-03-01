@@ -9,5 +9,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("00MDM9ZU77dn8aYXk");
+      })();
+    </script>
   </body>
 </html>

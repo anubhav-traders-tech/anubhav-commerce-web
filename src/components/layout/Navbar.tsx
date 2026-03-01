@@ -63,26 +63,26 @@ export const Navbar = () => {
                         ))}
 
                         {/* Desktop Cart Icon */}
-                        <div className="relative ml-4 p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
+                        <Link to="/cart" className="relative ml-4 p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
                             <ShoppingCart className="w-6 h-6" />
                             {cartCount > 0 && (
                                 <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
                                     {cartCount}
                                 </span>
                             )}
-                        </div>
+                        </Link>
                     </div>
 
                     {/* Mobile menu button and Cart */}
                     <div className="flex items-center space-x-4 md:hidden">
-                        <div className="relative p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
+                        <Link to="/cart" className="relative p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
                             <ShoppingCart className="w-6 h-6" />
                             {cartCount > 0 && (
                                 <span className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
                                     {cartCount}
                                 </span>
                             )}
-                        </div>
+                        </Link>
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors"

@@ -6,6 +6,9 @@ import BrandPage from './pages/BrandPage';
 import BrandsPage from './pages/BrandsPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetail from './pages/ProductDetail';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage';
 import InquiryPage from './pages/InquiryPage';
 import ContactPage from './pages/ContactPage';
 import ImportDashboard from './pages/admin/ImportDashboard';
@@ -21,6 +24,9 @@ export default function App() {
           <Route path="/brand/:slug" element={<BrandPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:productId" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order-success" element={<OrderSuccessPage />} />
           <Route path="/inquiry" element={<InquiryPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin" element={<ImportDashboard />} />
