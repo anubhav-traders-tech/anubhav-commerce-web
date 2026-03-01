@@ -491,22 +491,399 @@
     "name": "Vaveda",
     "slug": "vaveda",
     "description": "Trigger your energy with pure taste. Spout Pouches & Tetra Packs.",
-    "logo": "https://images.unsplash.com/photo-1595995252814-1ee6b1580f4f?auto=format&fit=crop&q=80&w=200&h=200",
+    "logo": "/catalog/images/vaveda/logo-Vaveda.jpg",
     "products": [
       {
-        "id": "v1",
-        "name": "Kiddo Kid Spout Pouch",
-        "category": "Beverage",
-        "mrp": "₹25",
-        "image": "/catalog/images/v1.jpg",
+        "id": "v-cf-mango",
+        "name": "Coco Float (Mango)",
+        "category": "Coco Floats",
+        "mrp": "₹70",
+        "image": "/catalog/images/vaveda/Coco Floats/Coco float.jpg",
+        "variants": [
+          {
+            "weight": "320ml",
+            "price": 70
+          }
+        ],
         "isNew": true
       },
       {
-        "id": "v2",
-        "name": "Energy Drink Tetra Pack (1.8 Ltr)",
-        "category": "Beverage",
-        "mrp": "₹120",
-        "image": "/catalog/images/v2.jpg"
+        "id": "v-cf-coconut",
+        "name": "Coco Float (Coconut)",
+        "category": "Coco Floats",
+        "mrp": "₹70",
+        "image": "/catalog/images/vaveda/Coco Floats/Coco Float (2).jpg",
+        "variants": [
+          {
+            "weight": "320ml",
+            "price": 70
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-cf-lemon",
+        "name": "Coco Float (Lemon)",
+        "category": "Coco Floats",
+        "mrp": "₹70",
+        "image": "/catalog/images/vaveda/Coco Floats/Coco Float (3).jpg",
+        "variants": [
+          {
+            "weight": "320ml",
+            "price": 70
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-cf-grape",
+        "name": "Coco Float (Grape)",
+        "category": "Coco Floats",
+        "mrp": "₹70",
+        "image": "/catalog/images/vaveda/Coco Floats/Coco float.jpg",
+        "variants": [
+          {
+            "weight": "320ml",
+            "price": 70
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-cf-strawberry",
+        "name": "Coco Float (Strawberry)",
+        "category": "Coco Floats",
+        "mrp": "₹70",
+        "image": "/catalog/images/vaveda/Coco Floats/Coco Float (2).jpg",
+        "variants": [
+          {
+            "weight": "320ml",
+            "price": 70
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-ed",
+        "name": "Energy Drink",
+        "category": "Drinks",
+        "mrp": "₹20",
+        "image": "/catalog/images/vaveda/Drinks/Energy Drink.jpg",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 20
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-mojito",
+        "name": "Mojito",
+        "category": "Drinks",
+        "mrp": "₹20",
+        "image": "/catalog/images/vaveda/Drinks/Mojito.jpg",
+        "variants": [
+          {
+            "weight": "200ml",
+            "price": 20
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-jeera",
+        "name": "Jeera",
+        "category": "Drinks",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Drinks/Jeera.jpg",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-j-anar",
+        "name": "Anar Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Anar.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-mango",
+        "name": "Mango Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Mango.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-guava",
+        "name": "Guava Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Guava.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-pine",
+        "name": "Pineapple Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Pineapple.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-lychee",
+        "name": "Lychee Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Litchi.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-mix",
+        "name": "Mixed Fruit Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Mixed Fruits.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-kiwi",
+        "name": "Kiwi Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Kiwi.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-orange",
+        "name": "Orange Juice",
+        "category": "Juices",
+        "mrp": "₹20 - ₹120",
+        "image": "/catalog/images/vaveda/Juices/Orange.png",
+        "variants": [
+          {
+            "weight": "150ml",
+            "price": 20
+          },
+          {
+            "weight": "200ml",
+            "price": 30
+          },
+          {
+            "weight": "300ml",
+            "price": 40
+          },
+          {
+            "weight": "1L",
+            "price": 120
+          }
+        ]
+      },
+      {
+        "id": "v-j-18l",
+        "name": "Vaveda 1.8 Ltr Juice",
+        "category": "Juices",
+        "mrp": "₹150",
+        "image": "/catalog/images/vaveda/Juices/Vaveda-1.8 ltr juices.jpg",
+        "variants": [
+          {
+            "weight": "1.8L",
+            "price": 150
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-tp-1",
+        "name": "Tetra Pack Juices",
+        "category": "Tetra Pack",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Tetra Pack/Tetra pack.png",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ],
+        "isNew": true
+      },
+      {
+        "id": "v-kk-mango",
+        "name": "Kido Kid Mango",
+        "category": "Tetra Pack",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Tetra Pack/Kido kid mango.jpg",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ]
+      },
+      {
+        "id": "v-kk-trop",
+        "name": "Kido Kid Tropical Mix",
+        "category": "Tetra Pack",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Tetra Pack/Kido kid tropical mix.png",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ]
+      },
+      {
+        "id": "v-kk-guava",
+        "name": "Kido Kid Exotic Guava",
+        "category": "Tetra Pack",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Tetra Pack/kido kid exotic guava.png",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ]
+      },
+      {
+        "id": "v-kk-lychee",
+        "name": "Kido Kid Lychee",
+        "category": "Tetra Pack",
+        "mrp": "₹10",
+        "image": "/catalog/images/vaveda/Tetra Pack/Kido kid lychee mix.png",
+        "variants": [
+          {
+            "weight": "160ml",
+            "price": 10
+          }
+        ]
       }
     ]
   }

@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Product } from '../../data/brands';
-import { IndianRupee } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
@@ -8,6 +8,12 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, brandName }: ProductCardProps) => {
+    const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
+    const variants: any = (product as any).variants || [];
+    const hasVariants = variants.length > 0;
+
+    const displayMrp = hasVariants ? `₹${variants[selectedVariantIdx].price}` : product.mrp;
+
     return (
         <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col h-full hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 relative">
             <div className="relative pt-[100%] bg-gray-50 w-full overflow-hidden">
@@ -32,9 +38,26 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
                 {brandName && (
                     <div className="text-sm font-medium text-gray-500 mb-4">{brandName}</div>
                 )}
+
+                {hasVariants && variants.length > 1 && (
+                    <div className="mb-4">
+                        <select
+                            className="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 outline-none font-medium cursor-pointer"
+                            value={selectedVariantIdx}
+                            onChange={(e) => setSelectedVariantIdx(Number(e.target.value))}
+                        >
+                            {variants.map((v: any, idx: number) => (
+                                <option key={idx} value={idx}>
+                                    {v.weight}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
+
                 <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
                     <div className="text-xl font-bold text-gray-900 flex items-center">
-                        {product.mrp}
+                        {displayMrp}
                     </div>
                     <Link
                         to="/inquiry"
