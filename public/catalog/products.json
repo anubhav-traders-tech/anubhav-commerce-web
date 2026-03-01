@@ -460,29 +460,1227 @@
     "name": "Basic Ayurveda",
     "slug": "basic-ayurveda",
     "description": "The Science of Pure Herbs & Authentic Ayurvedic Juices formulations.",
-    "logo": "https://images.unsplash.com/photo-1584308666744-24d59b2987a9?auto=format&fit=crop&q=80&w=200&h=200",
+    "logo": "/catalog/images/basic-ayurveda/Logo-Basic Ayurveda.jpg",
     "products": [
       {
-        "id": "ba1",
-        "name": "Aloe Amla Juice (500ml)",
-        "category": "Health Juice",
-        "mrp": "₹250",
-        "image": "/catalog/images/ba1.jpg",
+        "id": "ba-c-1",
+        "name": "Ashwagandha Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Ashwagandha Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
         "isNew": true
       },
       {
-        "id": "ba2",
-        "name": "Ash Gourd Juice (500ml)",
-        "category": "Health Juice",
-        "mrp": "₹199",
-        "image": "/catalog/images/ba2.jpg"
+        "id": "ba-c-2",
+        "name": "Bava Sutra Capsule ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Bava Sutra Capsule .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
       },
       {
-        "id": "ba3",
-        "name": "Karela Jamun Juice",
-        "category": "Health Juice",
-        "mrp": "₹220",
-        "image": "/catalog/images/ba3.jpg"
+        "id": "ba-c-3",
+        "name": "Bitter Gourd capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Bitter Gourd capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-4",
+        "name": "CalC Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/CalC Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-5",
+        "name": "Cholestro Fit",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Cholestro Fit.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-6",
+        "name": "Diabe Gold ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Diabe Gold .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-7",
+        "name": "Feverish Capsule ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Feverish Capsule .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-8",
+        "name": "Garlic Tab",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Garlic Tab.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-9",
+        "name": "Joint Sutra Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Joint Sutra Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-10",
+        "name": "Lady Norm",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Lady Norm.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-11",
+        "name": "Liv Lac Tab",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Liv Lac Tab.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-12",
+        "name": "Param Sakti Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Param Sakti Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-13",
+        "name": "Rakt Sudhi Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Rakt Sudhi Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-14",
+        "name": "Senior Plus Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Senior Plus Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-15",
+        "name": "Shilajit ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Shilajit .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-16",
+        "name": "Slim Yog ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Slim Yog .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-17",
+        "name": "Sperm Booster Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Sperm Booster Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-18",
+        "name": "Spirulina Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Spirulina Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-19",
+        "name": "Stop 1 ",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Stop 1 .png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-c-20",
+        "name": "Tantra Sutra Capsule",
+        "category": "Capsules",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Capsule/Tantra Sutra Capsule.png",
+        "variants": [
+          {
+            "weight": "Standard",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-1",
+        "name": "After Meal",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/After Meal - 225ml & 450ml.png",
+        "variants": [
+          {
+            "weight": "225ml",
+            "price": 0
+          },
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-2",
+        "name": "Aloe Vera Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Aloe Vera Juice- 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-3",
+        "name": "Aloe",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Aloe- Amla mix juice - 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "Amla mix juice - 500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-4",
+        "name": "Amla juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Amla juice - 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-5",
+        "name": "Ash Gourd Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Ash Gourd Juice - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-6",
+        "name": "Ayurh Syrup",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Ayurh Syrup - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-7",
+        "name": "Bio chance",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Bio chance- 225ml & 450ml.png",
+        "variants": [
+          {
+            "weight": "225ml",
+            "price": 0
+          },
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-8",
+        "name": "Bitter Gourd Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Bitter Gourd Juice - 500ml and 100ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 100ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-9",
+        "name": "Brahmi juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Brahmi juice- 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-10",
+        "name": "Deep Sleep",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Deep Sleep - 250ml.png",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-11",
+        "name": "Giloy Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Giloy Juice- 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-12",
+        "name": "Grass meal (Without sugar)",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Grass meal (Without sugar)- 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-13",
+        "name": "Grass Meal juice(with honey)",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Grass Meal juice(with honey) - 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-14",
+        "name": "Guru Ram Ras",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Guru Ram Ras - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-15",
+        "name": "Jamun juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Jamun juice -500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-16",
+        "name": "Jamun Karela juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Jamun Karela juice - 500ml & 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          },
+          {
+            "weight": "1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-17",
+        "name": "Lauki juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Lauki juice - 500ml & 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          },
+          {
+            "weight": "1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-18",
+        "name": "Life Ok",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Life Ok - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-19",
+        "name": "Long Jack",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Long Jack - 250ml.png",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-20",
+        "name": "Neem Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Neem Juice - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-21",
+        "name": "Nirgundi juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Nirgundi juice - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-22",
+        "name": "Noni Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Noni Juice - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-23",
+        "name": "Obitapa fat cutter",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Obitapa fat cutter - 500ml & 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          },
+          {
+            "weight": "1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-24",
+        "name": "Oxy Meal",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Oxy Meal - 250ml.png",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-25",
+        "name": "Papaya Meal",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Papaya Meal - 500 ml.png",
+        "variants": [
+          {
+            "weight": "500 ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-26",
+        "name": "Patdrill syrup",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Patdrill syrup - 250ml.png",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-27",
+        "name": "Pilosutra Syrup",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Pilosutra Syrup - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-28",
+        "name": "Shadang Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Shadang Juice - 500ml.png",
+        "variants": [
+          {
+            "weight": "500ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-29",
+        "name": "shankh pushpi Syrup",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/shankh pushpi Syrup - 225ml & 450ml.png",
+        "variants": [
+          {
+            "weight": "225ml",
+            "price": 0
+          },
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-30",
+        "name": "Skin Aura Drink",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Skin Aura Drink - 225ml & 450ml.png",
+        "variants": [
+          {
+            "weight": "225ml",
+            "price": 0
+          },
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-31",
+        "name": "Tarang Asava",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Tarang Asava - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-32",
+        "name": "Thyromeal Syrup",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Thyromeal Syrup - 250ml & 450ml.png",
+        "variants": [
+          {
+            "weight": "250ml",
+            "price": 0
+          },
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hj-33",
+        "name": "Triphala Juice",
+        "category": "Health Juices",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Health Juices/Triphala Juice- 500ml and 1000ml.png",
+        "variants": [
+          {
+            "weight": "500ml and 1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hc-1",
+        "name": "Amla Chatpati candy",
+        "category": "Honey & Candy",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Honey & Candy/Amla Chatpati candy - 250g.png",
+        "variants": [
+          {
+            "weight": "250g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hc-2",
+        "name": "Amla sweet candy",
+        "category": "Honey & Candy",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Honey & Candy/Amla sweet candy - 250g.png",
+        "variants": [
+          {
+            "weight": "250g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hc-3",
+        "name": "Pure Honey",
+        "category": "Honey & Candy",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Honey & Candy/Pure Honey - 100g.png",
+        "variants": [
+          {
+            "weight": "100g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hc-4",
+        "name": "Pure Honey",
+        "category": "Honey & Candy",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Honey & Candy/Pure Honey - 250g.png",
+        "variants": [
+          {
+            "weight": "250g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-hc-5",
+        "name": "Pure Honey",
+        "category": "Honey & Candy",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Honey & Candy/Pure Honey - 500g.png",
+        "variants": [
+          {
+            "weight": "500g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-1",
+        "name": "Anu Tailam",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Anu Tailam - 10ml.png",
+        "variants": [
+          {
+            "weight": "10ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-2",
+        "name": "Jod Bhejod oil",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Jod Bhejod oil - 50ml & 100ml.png",
+        "variants": [
+          {
+            "weight": "50ml",
+            "price": 0
+          },
+          {
+            "weight": "100ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-3",
+        "name": "Keshu Gold",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Keshu Gold - 100ml.png",
+        "variants": [
+          {
+            "weight": "100ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-4",
+        "name": "Kumkumadi Tailam",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Kumkumadi Tailam - 12ml.png",
+        "variants": [
+          {
+            "weight": "12ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-5",
+        "name": "Maha Bhringraj tel",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Maha Bhringraj tel - 100ml & 200ml.png",
+        "variants": [
+          {
+            "weight": "100ml",
+            "price": 0
+          },
+          {
+            "weight": "200ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-6",
+        "name": "Maha Marichyadi Tel",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Maha Marichyadi Tel - 50ml.png",
+        "variants": [
+          {
+            "weight": "50ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-7",
+        "name": "Mahanarayan Tel",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Mahanarayan Tel - 100ml.png",
+        "variants": [
+          {
+            "weight": "100ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-o-8",
+        "name": "Olive Oil",
+        "category": "Oils",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Oil/Olive Oil - 50ml.png",
+        "variants": [
+          {
+            "weight": "50ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-1",
+        "name": "Bita Force",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Bita Force- 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-2",
+        "name": "Dant Nikhar Powder",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Dant Nikhar Powder- 30g.png",
+        "variants": [
+          {
+            "weight": "30g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-3",
+        "name": "Gold Mass",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Gold Mass- 500g.png",
+        "variants": [
+          {
+            "weight": "500g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-4",
+        "name": "Grass Meal powder",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Grass Meal powder - 50g.png",
+        "variants": [
+          {
+            "weight": "50g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-5",
+        "name": "Kamdev Churan",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Kamdev Churan - 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-6",
+        "name": "Karela & Jamun Powder",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Karela & Jamun Powder - 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-7",
+        "name": "Khurafati Churan",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Khurafati Churan - 40g.png",
+        "variants": [
+          {
+            "weight": "40g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-8",
+        "name": "MadhuMeha Arogya Amrita",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/MadhuMeha Arogya Amrita - 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-9",
+        "name": "Maha kauch pak",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Maha kauch pak - 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-10",
+        "name": "Paneer Doda",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Paneer Doda- 200g.png",
+        "variants": [
+          {
+            "weight": "200g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-11",
+        "name": "Shatavari Powder",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Shatavari Powder - 100g.png",
+        "variants": [
+          {
+            "weight": "100g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-p-12",
+        "name": "Soft Looz",
+        "category": "Powders",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Powder/Soft Looz - 100g.png",
+        "variants": [
+          {
+            "weight": "100g",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-1",
+        "name": "Apple Cider",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Apple Cider - 450ml & 1000ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          },
+          {
+            "weight": "1000ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-2",
+        "name": "Beetroot Vinegar",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Beetroot Vinegar - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-3",
+        "name": "Grapes Vinegar",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Grapes Vinegar - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-4",
+        "name": "Jamun Vinegar",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Jamun Vinegar - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-5",
+        "name": "Pomegranate Vinegar",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Pomegranate Vinegar - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
+      },
+      {
+        "id": "ba-v-6",
+        "name": "Sugar Cane Vinegar",
+        "category": "Vinegar",
+        "mrp": "Check Package",
+        "image": "/catalog/images/basic-ayurveda/Vineger/Sugar Cane Vinegar - 450ml.png",
+        "variants": [
+          {
+            "weight": "450ml",
+            "price": 0
+          }
+        ],
+        "isNew": false
       }
     ]
   },
