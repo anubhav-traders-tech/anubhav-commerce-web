@@ -275,10 +275,10 @@ export default function HomePage() {
 
                         <div className="relative z-10">
                             <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-                                Looking for Bulk Orders?
+                                Become a Dealer / Supply Partner
                             </h2>
                             <p className="text-xl text-gray-600 font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
-                                Get special distributor margins, reliable delivery schedules, and dedicated account management for your enterprise.
+                                Apply for authorized distributor access to unlock exclusive wholesale margins, credit terms, and dedicated supply chain support.
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -286,13 +286,13 @@ export default function HomePage() {
                                     to="/products"
                                     className="inline-flex justify-center items-center px-10 py-4 border-2 border-transparent text-lg font-bold rounded-xl text-white bg-emerald-700 hover:bg-emerald-800 shadow-xl shadow-emerald-700/20 transition-all duration-300 hover:-translate-y-1"
                                 >
-                                    Shop Now
+                                    Browse Catalog
                                 </Link>
                                 <Link
                                     to="/contact"
                                     className="inline-flex justify-center items-center px-10 py-4 border-2 border-gray-200 text-lg font-bold rounded-xl text-gray-800 bg-white hover:bg-gray-50 hover:border-gray-300 shadow-sm transition-all duration-300 hover:-translate-y-1"
                                 >
-                                    Contact Us
+                                    Submit Partnership Request
                                 </Link>
                             </div>
                         </div>
