@@ -1,9 +1,38 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Truck, Package } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, CheckCircle2, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { useCatalog } from '../context/CatalogContext';
 import { BrandCard } from '../components/ui/BrandCard';
 import { ProductCard } from '../components/ui/ProductCard';
+import { useEffect, useRef, useState } from 'react';
+
+// Scroll reveal custom hook
+function useScrollReveal() {
+    const ref = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setIsVisible(true);
+                observer.unobserve(entry.target);
+            }
+        }, { threshold: 0.1 });
+
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return { ref, isVisible };
+}
+
+function RevealSection({ children, className = '' }: { children: React.ReactNode, className?: string }) {
+    const { ref, isVisible } = useScrollReveal();
+    return (
+        <div ref={ref} className={`reveal ${isVisible ? 'active' : ''} ${className}`}>
+            {children}
+        </div>
+    );
+}
 
 export default function HomePage() {
     const { brands, allProducts } = useCatalog();
@@ -12,190 +41,209 @@ export default function HomePage() {
         featuredProducts.push(...allProducts.slice(0, 8)); // Fallback
     }
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-    };
+    // Double the brands array for infinite seamless scroll
+    const scrollBrands = [...brands, ...brands, ...brands];
 
     return (
         <div className="flex flex-col min-h-screen">
             {/* 1. HERO SECTION */}
-            <section className="relative bg-white py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100 overflow-hidden">
-                {/* Subtle background glow */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-blue-100/50 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                <div className="absolute right-0 bottom-0 w-[500px] h-[300px] bg-cyan-100/40 rounded-full blur-3xl -z-10"></div>
+            <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-50 pt-28 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-100 overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] bg-blue-50/50 rounded-full blur-3xl -z-10"></div>
 
-                <div className="max-w-7xl mx-auto text-center relative z-10 pt-8 pb-12">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-                        <span className="inline-block py-1.5 px-4 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm mb-6 border border-blue-100 shadow-sm">
-                            Trusted FMCG Distribution Partner
+                <div className="max-w-7xl mx-auto text-center relative z-10 pt-10">
+                    <RevealSection>
+                        <span className="inline-block py-1.5 px-5 rounded-full bg-white text-gray-800 font-bold text-xs uppercase tracking-widest mb-6 border border-gray-200 shadow-sm">
+                            B2B Wholesale & Distribution
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
-                            Authorized Distributor of<br className="hidden md:block" />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-500">
-                                Leading Ayurvedic Brands
-                            </span>
+                        <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tight mb-6 leading-tight">
+                            Trusted FMCG & Ayurvedic <br className="hidden md:block" />
+                            <span className="text-blue-600">Brand Distributor</span>
                         </h1>
-                        <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-500 mb-10 leading-relaxed">
-                            Supplying retailers, pharmacies, and bulk buyers with high-quality products across multiple FMCG categories.
+                        <p className="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed font-medium">
+                            Supplying Retailers and Bulk Buyers Across Multiple Categories with 100% Authentic Products & Competitive Margins.
                         </p>
-                        <div className="flex justify-center flex-col sm:flex-row gap-5">
+                        <div className="flex justify-center flex-col sm:flex-row gap-4">
                             <Link
                                 to="/brands"
-                                className="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-lg font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-1"
+                                className="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-bold rounded-xl text-white bg-blue-600 hover:bg-gray-900 shadow-md transition-all duration-300"
                             >
                                 Explore Brands
                             </Link>
                             <Link
-                                to="/inquiry"
-                                className="inline-flex justify-center items-center px-8 py-3.5 border-2 border-gray-200 text-lg font-semibold rounded-xl text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm hover:-translate-y-1"
+                                to="/contact"
+                                className="inline-flex justify-center items-center px-8 py-3.5 border border-gray-200 text-base font-bold rounded-xl text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-300 shadow-sm transition-all duration-300"
                             >
-                                Send Inquiry
+                                Contact Us
                             </Link>
                         </div>
-                    </motion.div>
+                    </RevealSection>
                 </div>
             </section>
 
-            {/* 2. OUR BRANDS SECTION */}
-            <section id="brands" className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 scroll-mt-16">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-                        variants={containerVariants}
-                        className="text-center mb-16"
-                    >
-                        <motion.h2 variants={itemVariants} className="text-3xl font-extrabold text-gray-900 sm:text-5xl tracking-tight mb-4">
-                            Premium Partner Brands
-                        </motion.h2>
-                        <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-xl text-gray-500">
-                            We exclusively partner with verified manufacturers to ensure 100% authentic supply.
-                        </motion.p>
-                    </motion.div>
+            {/* 2. LOGO SCROLL STRIP */}
+            <section className="py-10 bg-white border-b border-gray-100 overflow-hidden relative">
+                <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Authorized Distributor For</p>
+                </div>
+                {/* Fade edges */}
+                <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-                    >
-                        {brands.map(brand => (
-                            <motion.div key={brand.id} variants={itemVariants}>
-                                <BrandCard brand={brand} />
-                            </motion.div>
+                <div className="flex overflow-hidden group">
+                    <div className="animate-scrollX flex items-center gap-16 px-8">
+                        {scrollBrands.map((brand, idx) => (
+                            <img
+                                key={idx}
+                                src={brand.logo}
+                                alt={brand.name}
+                                className="h-16 w-auto object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100 filter"
+                            />
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
-            {/* 3. FEATURED PRODUCTS SECTION */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
+            {/* 3. OUR BRANDS GRID */}
+            <section id="brands" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 pb-24">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex justify-between items-end mb-12">
-                        <div>
-                            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl tracking-tight">New Arrivals</h2>
-                            <p className="mt-4 text-xl text-gray-500">Fast-moving stock freshly added to our inventory.</p>
-                        </div>
-                        <Link to="/products" className="hidden sm:flex items-center text-blue-600 hover:text-blue-700 font-semibold group">
-                            View All Products <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </div>
+                    <RevealSection className="text-center mb-16">
+                        <h2 className="text-3xl font-black text-gray-900 sm:text-4xl tracking-tight mb-4">
+                            Premium Partner Brands
+                        </h2>
+                        <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                    </RevealSection>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <RevealSection className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        {brands.map(brand => (
+                            <BrandCard key={brand.id} brand={brand} />
+                        ))}
+                    </RevealSection>
+                </div>
+            </section>
+
+            {/* 4. FEATURED PRODUCTS (NEW ARRIVALS) */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <RevealSection className="flex justify-between items-end mb-12">
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl tracking-tight mb-4">Fast-Moving Inventory</h2>
+                            <div className="w-20 h-1 bg-blue-600 rounded-full"></div>
+                        </div>
+                        <Link to="/products" className="hidden sm:flex items-center text-blue-600 hover:text-gray-900 font-bold group transition-colors">
+                            View All Catalog <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </RevealSection>
+
+                    <RevealSection className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {featuredProducts.map(product => (
                             <ProductCard key={product.id} product={product} brandName={(product as any).brandName} />
                         ))}
-                    </div>
+                    </RevealSection>
 
                     <div className="mt-12 text-center sm:hidden">
-                        <Link to="/products" className="inline-flex items-center px-6 py-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 font-semibold">
-                            View All Products <ArrowRight className="ml-2 h-5 w-5" />
+                        <Link to="/products" className="inline-flex items-center px-6 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 font-bold">
+                            View All Catalog <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* 4. ABOUT / CREDIBILITY SECTION */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="bg-white rounded-[2rem] p-8 md:p-16 border border-gray-200/60 shadow-xl shadow-gray-200/50 flex flex-col lg:flex-row items-center justify-between gap-16 relative overflow-hidden">
-
-                        {/* Soft background shape */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full -z-10 opacity-70"></div>
-
+            {/* 5. ABOUT ANUBHAV TRADERS */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <RevealSection className="bg-white rounded-[2rem] p-8 md:p-14 border border-gray-100 shadow-sm flex flex-col lg:flex-row gap-16">
+                        {/* Left Side: About short paragraph */}
                         <div className="flex-1">
-                            <h2 className="text-3xl font-extrabold text-gray-900 mb-8 sm:text-4xl tracking-tight">
-                                Why Partner With Us?
+                            <h2 className="text-3xl font-black text-gray-900 mb-6 tracking-tight">
+                                About Anubhav Traders
                             </h2>
-                            <div className="grid gap-6">
+                            <p className="text-lg text-gray-600 leading-relaxed font-medium mb-6">
+                                We are a premier multi-brand distributor specializing in FMCG and Ayurvedic products.
+                                With years of industry expertise, we seamlessly connect top-tier manufacturers with diverse retail networks.
+                            </p>
+                            <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                Our robust supply chain enables bulk supply capabilities ensuring your shelves never go empty.
+                                Whether you're a local pharmacy, a supermarket, or an independent retailer, we are equipped to scale with your demand.
+                            </p>
+                        </div>
+
+                        {/* Right Side: Bullet Highlights */}
+                        <div className="flex-1 bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                            <h3 className="text-xl font-bold text-gray-900 mb-6">Why Partner With Us?</h3>
+                            <ul className="space-y-5">
                                 {[
-                                    { icon: ShieldCheck, title: 'Trusted Authenticity', desc: '100% genuine products directly sourced from brands.' },
-                                    { icon: Truck, title: 'Reliable Supply Chain', desc: 'Consistent fulfillment for bulk and high-volume retail orders.' },
-                                    { icon: Package, title: 'Extensive Catalogue', desc: 'Hundreds of fast-moving consumer goods across categories.' },
-                                    { icon: CheckCircle2, title: 'Competitive Pricing', desc: 'Best wholesale margins negotiated for our retail partners.' }
-                                ].map((item, i) => (
-                                    <motion.div
-                                        initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                                        key={i} className="flex items-start"
-                                    >
-                                        <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mr-4">
-                                            <item.icon className="h-6 w-6" />
+                                    'Trusted by Hundreds of Retailers',
+                                    'Extensive Multi-Brand Portfolio',
+                                    'Highly Competitive Wholesale Pricing',
+                                    'Fast & Reliable Order Processing'
+                                ].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
                                         </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
-                                            <p className="text-gray-600 mt-1 leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    </motion.div>
+                                        <span className="text-lg font-bold text-gray-700">{feature}</span>
+                                    </li>
                                 ))}
+                            </ul>
+                        </div>
+                    </RevealSection>
+                </div>
+            </section>
+
+            {/* 6. CONTACT & LOCATION */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <RevealSection className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                        {/* Left: Contact Info */}
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-900 mb-8 tracking-tight">Our Location</h2>
+
+                            <div className="space-y-8">
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">Anubhav Traders</h3>
+                                    <p className="text-gray-500 font-medium">Authorized Wholesale Distributor</p>
+                                </div>
+
+                                <ul className="space-y-6">
+                                    <li className="flex items-start">
+                                        <MapPin className="w-6 h-6 text-blue-600 mr-4 mt-1 flex-shrink-0" />
+                                        <span className="text-lg text-gray-700 font-medium">F-241, Sector 3, Bawana Industrial Area,<br />Sector 3, Bawana, Delhi, 110039</span>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <Phone className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                                        <span className="text-lg text-gray-700 font-bold">+91-8851412032</span>
+                                    </li>
+                                    <li className="flex items-center">
+                                        <Mail className="w-6 h-6 text-blue-600 mr-4 flex-shrink-0" />
+                                        <span className="text-lg text-gray-700 font-medium">info@anubhavtraders.com</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <Clock className="w-6 h-6 text-blue-600 mr-4 mt-1 flex-shrink-0" />
+                                        <div>
+                                            <p className="text-lg text-gray-700 font-medium">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                                            <p className="text-gray-500 mt-1">Sunday Closed</p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
-                        <div className="flex-1 w-full lg:w-1/2">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-                                className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl relative"
-                            >
-                                <img
-                                    src="https://images.unsplash.com/photo-1586528116311-ad8ed7c15273?auto=format&fit=crop&q=80&w=1200"
-                                    alt="Modern Distribution Warehouse"
-                                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                            </motion.div>
+                        {/* Right: Google Map Embed */}
+                        <div className="h-[400px] w-full rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13992.358249627763!2d77.05445738804797!3d28.80211905307527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d07afc1c385db%3A0xc3924f3bf322af6!2sSector%203%2C%20Bawana%2C%20Delhi%2C%20110039!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Anubhav Traders Location Map"
+                            ></iframe>
                         </div>
 
-                    </div>
-                </div>
-            </section>
-
-            {/* 5. INQUIRY CTA SECTION */}
-            <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 overflow-hidden">
-                {/* Abstract background details */}
-                <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[80px] -z-10 translate-y-1/2 mix-blend-screen"></div>
-                <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-cyan-600/20 rounded-full blur-[60px] -z-10 -translate-y-1/2 mix-blend-screen"></div>
-
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                        <h2 className="text-4xl font-extrabold text-white sm:text-5xl mb-6 tracking-tight">
-                            Ready for Bulk Procurement?
-                        </h2>
-                        <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                            Connect with us for wholesale inquiries, dealership requests, and bulk supply quotes tailormade for your business needs.
-                        </p>
-                        <Link
-                            to="/inquiry"
-                            className="inline-flex justify-center items-center px-10 py-4 border border-transparent text-lg font-bold rounded-xl text-gray-900 bg-white hover:bg-gray-100 shadow-xl hover:-translate-y-1 transition-all"
-                        >
-                            Contact Sales Team
-                        </Link>
-                    </motion.div>
+                    </RevealSection>
                 </div>
             </section>
 

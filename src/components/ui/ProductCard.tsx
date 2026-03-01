@@ -32,40 +32,39 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
     };
 
     return (
-        <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden flex flex-col h-full hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 relative">
+        <div className="group bg-white border border-gray-100 rounded-[12px] overflow-hidden flex flex-col h-full hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-[5px] transition-all duration-300 relative">
             <Link to={`/product/${product.id}`} className="flex flex-col flex-grow">
-                <div className="relative pt-[100%] bg-gray-50 w-full overflow-hidden p-6 flex justify-center items-center">
+                <div className="relative pt-[100%] bg-gray-50/50 w-full overflow-hidden p-5 flex justify-center items-center border-b border-gray-50">
                     <img
                         src={product.image}
                         alt={product.name}
-                        className="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                        className="absolute inset-0 w-full h-full object-contain p-5 group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300"></div>
 
                     {product.isNew && (
-                        <span className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-black px-3 py-1 rounded-full shadow-md tracking-wider z-10">
-                            NEW
+                        <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-[6px] tracking-widest z-10 uppercase">
+                            New
                         </span>
                     )}
 
                     {product.discount_percentage && product.discount_percentage > 0 && (
-                        <span className="absolute top-4 right-4 bg-red-500 text-white text-xs font-black px-2 py-1 rounded-md shadow-sm z-10">
+                        <span className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-[6px] tracking-widest z-10">
                             {product.discount_percentage}% OFF
                         </span>
                     )}
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow bg-white relative z-10">
-                    <div className="text-xs text-blue-600 font-bold mb-2 tracking-wide uppercase">{product.category}</div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">{product.name}</h3>
+                <div className="p-5 flex flex-col flex-grow bg-white">
+                    <div className="text-[10px] text-gray-400 font-bold mb-1 tracking-wider uppercase">{product.category}</div>
+                    <h3 className="text-base font-bold text-gray-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">{product.name}</h3>
                     {brandName && (
-                        <div className="text-sm font-medium text-gray-500 mb-4">{brandName}</div>
+                        <div className="text-sm font-medium text-gray-500 mb-3">{brandName}</div>
                     )}
 
                     {hasVariants && variants.length > 1 && (
-                        <div className="mb-4" onClick={(e) => e.preventDefault()}>
+                        <div className="mb-4 mt-auto" onClick={(e) => e.preventDefault()}>
                             <select
-                                className="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 outline-none font-medium cursor-pointer"
+                                className="w-full bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-[8px] focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block p-2.5 outline-none font-medium cursor-pointer transition-shadow"
                                 value={selectedVariantIdx}
                                 onChange={(e) => setSelectedVariantIdx(Number(e.target.value))}
                             >
@@ -78,23 +77,25 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
                         </div>
                     )}
 
-                    <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
-                        <div className="flex flex-col">
-                            <span className="text-xl font-black text-gray-900">
-                                {displayMrp}
-                            </span>
-                            {product.discount_percentage && product.discount_percentage > 0 && product.mrp && (
-                                <span className="text-xs text-gray-400 font-medium line-through">
-                                    ₹{product.mrp}
+                    <div className="mt-auto pt-4 flex flex-col space-y-3">
+                        <div className="flex items-end justify-between">
+                            <div className="flex flex-col">
+                                <span className="text-lg font-black text-gray-900 leading-none">
+                                    {displayMrp}
                                 </span>
-                            )}
+                                {product.discount_percentage && product.discount_percentage > 0 && product.mrp && (
+                                    <span className="text-xs text-gray-400 font-medium line-through mt-1">
+                                        ₹{product.mrp}
+                                    </span>
+                                )}
+                            </div>
                         </div>
                         <button
                             onClick={handleAddToCart}
-                            className="bg-gray-100 hover:bg-blue-600 text-gray-900 hover:text-white p-2.5 rounded-xl transition-colors shadow-sm"
-                            title="Add to Cart"
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2.5 rounded-[8px] transition-colors shadow-sm flex items-center justify-center space-x-2"
                         >
-                            <ShoppingCart className="w-5 h-5" />
+                            <ShoppingCart className="w-4 h-4" />
+                            <span>Add to Cart</span>
                         </button>
                     </div>
                 </div>

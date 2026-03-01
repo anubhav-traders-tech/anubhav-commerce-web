@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900 font-sans">
       <Navbar />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-[120px]">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/brands" element={<BrandsPage />} />
