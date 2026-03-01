@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, MapPin, Phone, Mail, Clock } from 'lucide-rea
 import { useCatalog } from '../context/CatalogContext';
 import { BrandCard } from '../components/ui/BrandCard';
 import { ProductCard } from '../components/ui/ProductCard';
+import { AIProductFinder } from '../components/ui/AIProductFinder';
 import { useEffect, useRef, useState } from 'react';
 
 // Scroll reveal custom hook
@@ -79,6 +80,9 @@ export default function HomePage() {
                     </RevealSection>
                 </div>
             </section>
+
+            {/* AI PRODUCT FINDER */}
+            <AIProductFinder />
 
             {/* 2. LOGO SCROLL STRIP */}
             <section className="py-10 bg-white border-b border-gray-100 overflow-hidden relative">
