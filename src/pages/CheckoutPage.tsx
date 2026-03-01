@@ -4,13 +4,14 @@ import { useCart } from '../context/CartContext';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 export default function CheckoutPage() {
-    const { cart, cartTotal, clearCart } = useCart();
+    const { cart, clearCart, setIsCartOpen } = useCart();
     const navigate = useNavigate();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const [formData, setFormData] = useState({
         fullName: '',
+        companyName: '',
         mobile: '',
         email: '',
         address1: '',
@@ -19,6 +20,7 @@ export default function CheckoutPage() {
         state: '',
         pincode: '',
         businessType: 'Retailer',
+        monthlyVolume: '',
         gstNumber: '',
         notes: ''
     });
@@ -52,7 +54,13 @@ export default function CheckoutPage() {
         setErrorMsg('');
 
         if (cart.length === 0) {
-            setErrorMsg("Your cart has expired or is empty. Please add items before checking out.");
+            setErrorMsg("Your order panel is empty. Please add items before submitting an order.");
+            return;
+        }
+
+        const totalUnits = cart.reduce((a, b) => a + b.quantity, 0);
+        if (totalUnits < 10) {
+            setErrorMsg(`Distributor MOQ not met. Please add at least 10 total units to submit a bulk order. You currently have ${totalUnits}.`);
             return;
         }
 
@@ -82,15 +90,16 @@ export default function CheckoutPage() {
                 phone: formData.mobile,
                 email: formData.email,
                 business_type: formData.businessType,
+                monthly_volume: formData.monthlyVolume,
                 address: formData.address1 + (formData.address2 ? `, ${formData.address2}` : ''),
                 city: formData.city,
                 state: formData.state,
                 pincode: formData.pincode,
-                total: cartTotal,
+                total: 'TBD',
                 orders: cart.map(item => ({
                     name: item.name,
                     units: item.quantity,
-                    price: item.price * item.quantity
+                    price: 'TBD'
                 }))
             };
 
@@ -107,12 +116,13 @@ Phone: ${formData.mobile}
 Email: ${formData.email || 'N/A'}
 Address: ${formData.address1}, ${formData.address2 ? formData.address2 + ', ' : ''}${formData.city}, ${formData.state} - ${formData.pincode}
 Business Type: ${formData.businessType}
+Expected Monthly Volume: ${formData.monthlyVolume || 'Not Specified'}
 GST: ${formData.gstNumber || 'N/A'}
 
 *Products:*
-${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.quantity}`).join('\n')}
+${cart.map(item => `- ${item.name} (x${item.quantity})`).join('\n')}
 
-*Total Amount: ₹${cartTotal}*
+*Total Amount: Pricing Shared Post-Inquiry*
             `.trim();
 
             const encodedMessage = encodeURIComponent(orderDetailsText);
@@ -123,8 +133,8 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                 orderId,
                 customer: formData,
                 products: cart,
-                subtotal: cartTotal,
-                total: cartTotal,
+                subtotal: 'TBD',
+                total: 'TBD',
                 orderDate: new Date().toISOString(),
                 orderStatus: 'Pending',
                 paymentStatus: 'Pending',
@@ -143,7 +153,7 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
 
         } catch (error) {
             console.error('Error processing order:', error);
-            setErrorMsg("Network Error: Failed to submit the order via EmailJS. Please try again.");
+            setErrorMsg("Network Error: Failed to submit the order. Please try again or contact us directly.");
         } finally {
             setIsSubmitting(false);
         }
@@ -153,16 +163,16 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
         <div className="bg-gray-50 min-h-screen py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="flex items-center space-x-2 text-gray-500 mb-8 hover:text-gray-900 w-fit cursor-pointer" onClick={() => navigate('/cart')}>
+                <div className="flex items-center space-x-2 text-gray-500 mb-8 hover:text-gray-900 w-fit cursor-pointer" onClick={() => { navigate('/products'); setIsCartOpen(true); }}>
                     <ArrowLeft className="w-5 h-5" />
-                    <span className="font-medium text-sm">Back to Cart</span>
+                    <span className="font-medium text-sm">Back to Order Panel</span>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     {/* Left: Checkout Form */}
                     <div className="lg:col-span-7 space-y-6">
                         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-100 shadow-sm">
-                            <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Billing Details</h2>
+                            <h2 className="text-2xl font-black text-gray-900 mb-6 tracking-tight">Business Details</h2>
 
                             {errorMsg && (
                                 <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl">
@@ -178,14 +188,19 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                                         <input required type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe" />
                                     </div>
                                     <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Company Name</label>
+                                        <input type="text" name="companyName" value={formData.companyName} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Acme Retail Store" />
+                                    </div>
+                                </div>
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    <div>
                                         <label className="block text-sm font-bold text-gray-700 mb-2">Mobile Number *</label>
                                         <input required type="tel" name="mobile" value={formData.mobile} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="+91 98765 43210" />
                                     </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john@example.com" />
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email Address *</label>
+                                        <input required type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john@example.com" />
+                                    </div>
                                 </div>
 
                                 {/* Address Grid */}
@@ -230,6 +245,17 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                                     </div>
                                 </div>
 
+                                <div>
+                                    <label className="block text-sm font-bold text-gray-700 mb-2">Expected Monthly Volume (Optional)</label>
+                                    <select name="monthlyVolume" value={formData.monthlyVolume} onChange={handleInputChange} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
+                                        <option value="">Select an estimate...</option>
+                                        <option value="1-50 Cartons">1 - 50 Cartons</option>
+                                        <option value="50-200 Cartons">50 - 200 Cartons</option>
+                                        <option value="200-500 Cartons">200 - 500 Cartons</option>
+                                        <option value="500+ Cartons">500+ Cartons (Enterprise Mode)</option>
+                                    </select>
+                                </div>
+
                                 <div className="pt-4 pb-2">
                                     <label className="block text-sm font-bold text-gray-700 mb-2">Order Notes</label>
                                     <textarea name="notes" value={formData.notes} onChange={handleInputChange} rows={3} className="w-full bg-gray-50 border border-gray-200 text-gray-900 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Any special instructions..."></textarea>
@@ -255,25 +281,16 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                                                 <p className="text-xs font-semibold text-gray-500">Qty: {item.quantity}</p>
                                             </div>
                                         </div>
-                                        <span className="text-sm font-black text-gray-900">₹{item.price * item.quantity}</span>
+                                        <span className="text-sm font-black text-gray-400">TBD</span>
                                     </li>
                                 ))}
                             </ul>
 
                             <div className="space-y-3 mb-6 pt-4 border-t border-gray-100 text-sm">
-                                <div className="flex justify-between text-gray-600">
-                                    <span>Subtotal</span>
-                                    <span className="font-bold text-gray-900">₹{cartTotal}</span>
+                                <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg border border-gray-200 text-gray-700 font-bold">
+                                    <span>Distributor Pricing & Margins</span>
+                                    <span className="text-xs uppercase bg-emerald-100 px-2 py-1 shadow-sm rounded text-emerald-800 border border-emerald-200 tracking-wider">Applied Post-Order</span>
                                 </div>
-                                <div className="flex justify-between text-gray-600">
-                                    <span>Discount</span>
-                                    <span className="font-medium text-emerald-600">-₹0</span>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-between items-end mb-8 pt-4 border-t border-gray-200">
-                                <span className="text-gray-900 font-bold text-lg">Total Amount</span>
-                                <span className="text-3xl font-black text-blue-600">₹{cartTotal}</span>
                             </div>
 
                             <button
@@ -287,7 +304,7 @@ ${cart.map(item => `- ${item.name} (x${item.quantity}) = ₹${item.price * item.
                                 ) : (
                                     <>
                                         <CheckCircle className="w-5 h-5" />
-                                        <span>Place Order Now</span>
+                                        <span>Submit Bulk Order</span>
                                     </>
                                 )}
                             </button>

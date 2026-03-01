@@ -56,6 +56,15 @@ export default function BrandPage() {
                             <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full object-contain" />
                         </div>
                         <div className="text-center md:text-left">
+                            {/* Breadcrumbs */}
+                            <div className="flex flex-wrap justify-center md:justify-start items-center text-xs sm:text-sm text-blue-100/60 mb-4 gap-2 font-medium tracking-wide">
+                                <Link to="/" className="hover:text-white transition-colors">Home</Link>
+                                <span className="text-white/30">&gt;</span>
+                                <Link to="/brands" className="hover:text-white transition-colors">Brands</Link>
+                                <span className="text-white/30">&gt;</span>
+                                <span className="text-white font-bold truncate">{brand.name}</span>
+                            </div>
+
                             <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight drop-shadow-md">{brand.name}</h1>
                             <p className="text-xl text-blue-100/80 max-w-3xl leading-relaxed">{brand.description}</p>
                         </div>

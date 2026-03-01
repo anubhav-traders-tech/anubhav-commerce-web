@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
+import { ClipboardList } from 'lucide-react';
 import type { Product } from '../../data/brands';
 import { useCart } from '../../context/CartContext';
 
@@ -14,8 +14,6 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
     const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
     const variants: any = (product as any).variants || [];
     const hasVariants = variants.length > 0;
-
-    const displayMrp = hasVariants ? `₹${variants[selectedVariantIdx].price}` : `₹${product.selling_price || product.mrp || 0}`;
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -79,26 +77,38 @@ export const ProductCard = ({ product, brandName }: ProductCardProps) => {
                     )}
 
                     <div className="mt-auto pt-4 flex flex-col space-y-3">
-                        <div className="flex items-end justify-between">
-                            <div className="flex flex-col">
-                                <span className="text-lg font-black text-gray-900 leading-none">
-                                    {displayMrp}
-                                </span>
-                                {product.discount_percentage && product.discount_percentage > 0 && product.mrp && (
-                                    <span className="text-xs text-gray-400 font-medium line-through mt-1">
-                                        ₹{product.mrp}
-                                    </span>
-                                )}
+                        <div className="flex justify-between items-end">
+                            <div>
+                                <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1 block">Base Price</span>
+                                <span className="text-xl font-black text-gray-900 leading-none">₹{product.selling_price || product.mrp || 0}</span>
                             </div>
+                            {product.mrp && product.selling_price && product.mrp > product.selling_price && (
+                                <span className="text-sm text-gray-400 line-through font-medium">₹{product.mrp}</span>
+                            )}
                         </div>
+
+                        <div className="flex flex-col space-y-1">
+                            <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-1 rounded inline-flex w-fit items-center">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5"></span>
+                                Dealer pricing available for verified buyers
+                            </span>
+                            <span className="text-[10px] text-blue-600 font-bold bg-blue-50 px-2 py-1 rounded inline-flex w-fit">
+                                MOQ: 1 Carton
+                            </span>
+                        </div>
+
+                        <p className="text-[10px] text-gray-500 italic font-medium mt-1">
+                            For bulk quantity discounts, submit inquiry.
+                        </p>
+
                         <button
                             onClick={handleAddToCart}
-                            aria-label={`Add ${product.name} to cart`}
-                            title={`Add ${product.name} to cart`}
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2.5 rounded-[8px] transition-colors shadow-sm flex items-center justify-center space-x-2"
+                            aria-label={`Add ${product.name} to order`}
+                            title={`Add ${product.name} to order`}
+                            className="w-full bg-gray-900 hover:bg-blue-600 text-white text-sm font-bold py-2.5 rounded-[8px] transition-colors shadow-sm flex items-center justify-center space-x-2 mt-2"
                         >
-                            <ShoppingCart className="w-4 h-4" />
-                            <span>Add to Cart</span>
+                            <ClipboardList className="w-4 h-4" />
+                            <span>Add to Order</span>
                         </button>
                     </div>
                 </div>

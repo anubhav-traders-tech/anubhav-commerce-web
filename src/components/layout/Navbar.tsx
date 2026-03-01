@@ -1,13 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Menu, X, MapPin, Phone, Mail } from 'lucide-react';
+import { useLocation, Link } from 'react-router-dom';
+import { ClipboardList, Menu, X, MapPin, Phone, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
+import { GlobalSearch } from '../ui/GlobalSearch';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const { cartCount } = useCart();
+    const { cartCount, setIsCartOpen } = useCart();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -66,6 +67,11 @@ export const Navbar = () => {
                             </Link>
                         </div>
 
+                        {/* Search Bar - Desktop & Mobile Trigger */}
+                        <div className="flex-1 flex items-center justify-end md:justify-center">
+                            <GlobalSearch />
+                        </div>
+
                         {/* Desktop Menu */}
                         <div className="hidden md:flex md:items-center md:space-x-1">
                             {navLinks.map((link) => (
@@ -82,26 +88,26 @@ export const Navbar = () => {
                             ))}
 
                             {/* Desktop Cart Icon */}
-                            <Link to="/cart" className="relative ml-4 p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                <ShoppingCart className="w-6 h-6" />
+                            <button onClick={() => setIsCartOpen(true)} className="relative ml-4 p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors" title="Order List">
+                                <ClipboardList className="w-6 h-6" />
                                 {cartCount > 0 && (
                                     <span className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
                                         {cartCount}
                                     </span>
                                 )}
-                            </Link>
+                            </button>
                         </div>
 
                         {/* Mobile menu button and Cart */}
                         <div className="flex items-center space-x-4 md:hidden">
-                            <Link to="/cart" className="relative p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors">
-                                <ShoppingCart className="w-6 h-6" />
+                            <button onClick={() => setIsCartOpen(true)} className="relative p-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors" title="Order List">
+                                <ClipboardList className="w-6 h-6" />
                                 {cartCount > 0 && (
                                     <span className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center translate-x-1 -translate-y-1 shadow-sm">
                                         {cartCount}
                                     </span>
                                 )}
-                            </Link>
+                            </button>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors"

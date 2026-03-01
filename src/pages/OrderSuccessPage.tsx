@@ -1,9 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle, ExternalLink, ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function OrderSuccessPage() {
-    const navigate = useNavigate();
     const [orderData, setOrderData] = useState<any>(null);
 
     useEffect(() => {
@@ -20,7 +19,7 @@ export default function OrderSuccessPage() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">No recent order found</h2>
-                <Link to="/products" className="text-blue-600 hover:underline">Return to Shop</Link>
+                <Link to="/products" className="text-blue-600 hover:underline">Return to Catalog</Link>
             </div>
         );
     }
@@ -43,8 +42,8 @@ export default function OrderSuccessPage() {
                         <CheckCircle className="w-10 h-10 text-emerald-600" />
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">Order Placed Successfully!</h1>
-                    <p className="text-lg text-gray-500 mb-8 font-medium">Thank you for your business. Our team will contact you shortly.</p>
+                    <h1 className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight mb-2">Order Submitted Successfully!</h1>
+                    <p className="text-lg text-gray-500 mb-8 font-medium">Thank you for your business. Our team will contact you shortly with distributor pricing and order confirmation.</p>
 
                     <div className="inline-block bg-gray-50 rounded-2xl border border-gray-100 px-6 py-4 mb-10">
                         <p className="text-sm text-gray-500 uppercase font-bold tracking-wider mb-1">Order ID</p>
@@ -52,7 +51,7 @@ export default function OrderSuccessPage() {
                     </div>
 
                     <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8 flex flex-col items-center max-w-lg mx-auto">
-                        <h3 className="text-lg font-bold text-gray-900 mb-2">Final Step: Confirm via WhatsApp</h3>
+                        <h3 className="text-lg font-bold text-gray-900 mb-2">Optional Step: Follow up via WhatsApp</h3>
                         <p className="text-blue-800 text-sm mb-6 max-w-sm">
                             Please click the button below to send your order details directly to our WhatsApp for immediate processing.
                         </p>
@@ -61,7 +60,7 @@ export default function OrderSuccessPage() {
                             onClick={handleWhatsAppClick}
                             className="bg-[#25D366] hover:bg-[#1ead51] text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md shadow-green-600/20 active:scale-[0.98] flex items-center justify-center space-x-2 w-full sm:w-auto"
                         >
-                            <span>Confirm Order on WhatsApp</span>
+                            <span>Follow up on WhatsApp</span>
                             <ExternalLink className="w-5 h-5 ml-2" />
                         </button>
                     </div>
@@ -75,7 +74,7 @@ export default function OrderSuccessPage() {
                         {orderData.products.slice(0, 3).map((item: any) => (
                             <div key={item.id} className="flex justify-between items-center text-gray-700">
                                 <span className="font-medium truncate pr-4">{item.name} x{item.quantity}</span>
-                                <span className="font-bold flex-shrink-0">₹{item.price * item.quantity}</span>
+                                <span className="text-sm font-bold flex-shrink-0 text-gray-400">TBD</span>
                             </div>
                         ))}
                         {orderData.products.length > 3 && (
@@ -85,16 +84,16 @@ export default function OrderSuccessPage() {
                         )}
                     </div>
 
-                    <div className="border-t border-gray-100 pt-4 flex justify-between items-center">
-                        <span className="text-gray-900 font-bold">Total Amount</span>
-                        <span className="text-2xl font-black text-gray-900">₹{orderData.total}</span>
+                    <div className="border-t border-gray-100 pt-4 flex justify-between items-center text-sm">
+                        <span className="text-gray-900 font-bold">Total Amount Estimations</span>
+                        <span className="text-xs uppercase bg-emerald-50 text-emerald-800 border border-emerald-100 px-2 py-1 shadow-sm rounded font-black tracking-wider">Shared Post-Inquiry</span>
                     </div>
                 </div>
 
                 <div className="text-center">
                     <Link to="/products" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-bold transition-colors">
                         <ArrowLeft className="w-5 h-5 mr-2" />
-                        Continue Shopping
+                        Browse Catalog
                     </Link>
                 </div>
             </div>
